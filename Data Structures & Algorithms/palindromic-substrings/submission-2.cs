@@ -1,0 +1,24 @@
+public class Solution {
+    public int CountSubstrings(string s) {
+        int l = 0;
+        int r = 0;
+        int res = 0;
+        for(int i = 0; i < s.Length; i++){
+            l = i;
+            r = i;
+            while(l >= 0 && r < s.Length && s[r] == s[l]){
+                res++;
+                r++;
+                l--;
+            }
+            l = i;
+            r = i+1;
+            while(l >= 0 && r < s.Length && s[r] == s[l]){
+                res++;
+                r++;
+                l--;
+            }
+        }
+        return res;
+    }
+}
