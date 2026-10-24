@@ -1,0 +1,19 @@
+public class Solution {
+    public int Reverse(int x) {
+        const int MIN = int.MinValue;
+        const int MAX = int.MaxValue;
+
+        int res = 0;
+        while(x != 0){
+            int digit = x%10;
+            x /= 10;
+
+            if(res > MAX/10 || (res == MAX/10 && digit > MAX % 10)) return 0;
+            if(res < MIN/10 || (res == MIN/10 && digit < MAX % 10)) return 0;
+
+            res = (res*10) + digit;
+
+        }
+        return res;
+    }
+}
